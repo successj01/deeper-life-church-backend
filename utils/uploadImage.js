@@ -1,0 +1,32 @@
+import cloudinary from "cloudinary";
+
+
+cloudinary.v2.config({
+
+  cloud_name: process.env.CLOUDINARY_NAME,
+
+  api_key: process.env.CLOUDINARY_API_KEY,
+
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+
+});
+
+
+
+const uploadImage = async (file) => {
+
+  const result = await cloudinary.v2.uploader.upload(
+    file,
+    {
+      folder: "deeper-life-church",
+    }
+  );
+
+
+  return result.secure_url;
+
+};
+
+
+
+export default uploadImage;
