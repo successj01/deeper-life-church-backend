@@ -47,12 +47,14 @@ app.use("/api/events", eventsRoutes);
 app.use("/api/donation", donationRoutes);
 app.use("/api/announcements", announcementRoutes);
 
+
 app.get("/", (req, res) => {
   res.json({
     success: true,
     message: "Welcome to Deeper Life Church API",
   });
 });
+
 
 const PORT = process.env.PORT || 5000;
 
