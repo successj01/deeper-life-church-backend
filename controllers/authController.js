@@ -220,7 +220,7 @@ export const forgotPassword = async (
 
 
     const resetUrl =
-      `http://localhost:3000/reset-password/${resetToken}`;
+  `https://deeper-life-church-teal.vercel.app/reset-password/${resetToken}`;
 
 
 
