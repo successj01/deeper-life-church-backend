@@ -3,19 +3,12 @@ import nodemailer from "nodemailer";
 const sendEmail = async (options) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: false,
+      service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
-      connectionTimeout: 20000,
-      greetingTimeout: 20000,
-      socketTimeout: 20000,
     });
-
-    await transporter.verify();
 
     await transporter.sendMail({
       from: `"Deeper Life Church" <${process.env.EMAIL_USER}>`,
@@ -27,11 +20,8 @@ const sendEmail = async (options) => {
     console.log("✅ Email sent successfully");
 
   } catch (error) {
-
-    console.error("❌ EMAIL ERROR:", error.mesage);
-
+    console.error("❌ EMAIL ERROR:", error.message);
     throw error;
-
   }
 };
 
