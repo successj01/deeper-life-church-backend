@@ -5,14 +5,14 @@ const sendEmail = async (options) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
+      connectionTimeout: 20000,
+      greetingTimeout: 20000,
+      socketTimeout: 20000,
     });
 
     await transporter.verify();
@@ -24,7 +24,7 @@ const sendEmail = async (options) => {
       text: options.message,
     });
 
-    console.log("Email sent successfully");
+    console.log("✅ Email sent successfully");
 
   } catch (error) {
 
